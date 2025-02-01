@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>KaloriKu - Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-sans bg-gray-50">
+
+    <!-- Navbar Start -->
+    <nav class="bg-gradient-to-r from-teal-500 to-emerald-500 p-6 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="dashboard_cost.html" class="text-white text-3xl font-extrabold hover:text-gray-100 transition-all">KaloriKu</a>
+            <div class="space-x-6">
+                <a href="dashboard_cost.html" class="text-white hover:text-gray-200 text-lg transition">Home</a>
+                <a href="menu.html" class="text-white hover:text-gray-200 text-lg transition">Menu</a>
+                <a href="article.html" class="text-white hover:text-gray-200 text-lg transition">Article</a>
+                <a href="../form_login.html" class="text-white hover:text-gray-200 text-lg transition">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Hero Section Start -->
+    <header class="relative bg-cover bg-center h-[60vh] flex items-center justify-center"
+        style="background-image: url('https://img.freepik.com/free-photo/flat-lay-assortment-healthy-food_23-2148484687.jpg?w=996');">
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="container mx-auto text-center relative z-10 h-full flex flex-col justify-center items-center text-white">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-lime-700 mb-4">Dashboard</h1>
+            <p class="text-lg sm:text-xl text-green-200 mb-8">Selamat datang di dashboard KaloriKu!</p>
+        </div>
+    </header>
+    <!-- Hero Section End -->
+
+    <!-- Description Section Start -->
+    <div class="container mx-auto my-8 text-center px-4">
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-lime-700 mb-4">Apa itu KaloriKu?</h2>
+            <p class="text-gray-700 text-lg mb-4">
+                KaloriKu adalah platform inovatif yang dirancang untuk membantu Anda menjalani gaya hidup sehat. Kami menyediakan berbagai informasi penting, mulai dari menu makanan sehat yang dilengkapi dengan komposisi bahan, informasi kalori, hingga artikel menarik tentang kesehatan. Semua ini dikemas dalam antarmuka yang menarik dan mudah digunakan, membuat perjalanan menuju hidup sehat semakin menyenangkan!
+            </p>
+            <img src="https://img.freepik.com/premium-vector/healthy-lifestyle-vector-illustration-with-organic-vegetables-fruit-workout_2175-18027.jpg" alt="Healthy Lifestyle Illustration" class="mx-auto rounded-lg shadow-xl mt-6">
+        </div>
+    </div>
+    <!-- Description Section End -->
+
+    <!-- Dashboard Content Start -->
+    <div class="container mx-auto py-12 px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-white p-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <h3 class="text-xl font-semibold mb-4 text-green-700">Menu</h3>
+                <p class="text-gray-700 mb-6">Lihat dan pilih menu sehat favorit Anda.</p>
+                <a href="menu.html" class="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800 transition">Lihat Menu</a>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-white p-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <h3 class="text-xl font-semibold mb-4 text-green-700">Artikel</h3>
+                <p class="text-gray-700 mb-6">Baca artikel informatif tentang gaya hidup sehat.</p>
+                <a href="article.html" class="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800 transition">Lihat Artikel</a>
+            </div>
+        </div>
+    </div>
+    <!-- Dashboard Content End -->
+
+    <!-- Footer Start -->
+    <footer class="bg-gray-800 py-8 mt-12">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-400 text-sm mb-4">&copy; <span id="current-year"></span> KaloriKu. All rights reserved.</p>
+            <div class="space-x-6">
+                <a href="#" class="text-gray-400 hover:text-teal-500 transition">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-teal-500 transition">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Optional JavaScript for Current Year -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

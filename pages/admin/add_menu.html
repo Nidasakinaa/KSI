@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Menu Baru - KaloriKu Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="../../js/controller/post.js"></script>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="flex flex-no-wrap">
+        <!-- Sidebar -->
+        <div class="w-64 bg-green-100 h-screen text-gray-800 flex flex-col">
+            <div class="p-6 text-center font-bold text-xl border-b border-green-300">
+                KaloriKu Admin
+            </div>
+            <nav class="flex-grow mt-4">
+                <a href="dashboard.html" class="block px-6 py-3 hover:bg-green-200 transition">Dashboard</a>
+                <a href="menu.html" class="block px-6 py-3 hover:bg-green-200 transition">Menu</a>
+                <a href="users.html" class="block px-6 py-3 hover:bg-green-200 transition">Users</a>
+            </nav>
+            <div class="mt-auto px-6 py-4 border-t border-green-300">
+                <button class="w-full bg-green-300 py-2 rounded hover:bg-green-200 transition"><a href="../form_login.html">Logout</a></button>
+            </div>
+        </div>
+        <!-- Main Content -->
+        <div class="flex-grow p-6">
+            <div class="container mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold text-center text-green-600 mb-6">Form Add Menu</h2>
+                    <form id="menuInsertForm">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-semibold mb-2">Nama Menu</label>
+                            <input id="name" type="text" class="w-full p-3 border rounded-lg" name="menuName" placeholder="Masukkan nama menu" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="description" class="block text-gray-700 font-semibold mb-2">Deskripsi</label>
+                            <textarea id="description" class="w-full p-3 border rounded-lg" name="description" rows="3" placeholder="Masukkan deskripsi menu" required></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="ingredients" class="block text-gray-700 font-semibold mb-2">Ingredients</label>
+                            <textarea id="ingredients" class="w-full p-3 border rounded-lg" name="ingredients" rows="3" placeholder="Masukkan bahan-bahan menu" required></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="calories" class="block text-gray-700 font-semibold mb-2">Kalori</label>
+                            <input id="calories" type="number" class="w-full p-3 border rounded-lg" name="calories" placeholder="Masukkan jumlah kalori" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="category" class="block text-gray-700 font-semibold mb-2">Kategori</label>
+                            <select id="category" class="w-full p-3 border rounded-lg" name="category" required>
+                                <option hidden>Pilih Kategori</option>
+                                <option value="Diet">Diet</option>
+                                <option value="Vegan">Vegan</option>
+                                <option value="HighProtein">High Protein</option>
+                                <option value="Snacks">Snacks</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="photoUrl" class="block text-gray-700 font-semibold mb-2">URL Foto</label>
+                            <input id="image" type="url" class="w-full p-3 border rounded-lg" name="photoUrl" placeholder="Masukkan URL foto" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" id="submitButton" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-400 transition">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

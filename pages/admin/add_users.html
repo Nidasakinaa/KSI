@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Pengguna Baru - KaloriKu Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="../../js/add_user.js"></script>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="flex flex-no-wrap">
+        <!-- Sidebar -->
+        <div class="w-64 bg-green-100 h-screen text-gray-800 flex flex-col">
+            <div class="p-6 text-center font-bold text-xl border-b border-green-300">
+                KaloriKu Admin
+            </div>
+            <nav class="flex-grow mt-4">
+                <a href="dashboard.html" class="block px-6 py-3 hover:bg-green-200 transition">Dashboard</a>
+                <a href="menu.html" class="block px-6 py-3 hover:bg-green-200 transition">Menu</a>
+                <a href="users.html" class="block px-6 py-3 hover:bg-green-200 transition">Users</a>
+            </nav>
+            <div class="mt-auto px-6 py-4 border-t border-green-300">
+                <button class="w-full bg-green-300 py-2 rounded hover:bg-green-200 transition"><a href="../form_login.html">Logout</a></button>
+            </div>
+        </div>
+        <!-- Main Content -->
+        <div class="flex-grow p-6">
+            <div class="container mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold text-center text-green-600 mb-6">Form Add User</h2>
+                    <form id="userInsertForm">
+                        <div class="mb-4">
+                            <label for="fullname" class="block text-gray-700 font-semibold mb-2">Name</label>
+                            <input id="fullname" type="text" class="w-full p-3 border rounded-lg" name="fullname" placeholder="Masukkan nama pengguna" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 font-semibold mb-2">phone</label>
+                            <input id="phone" type="text" class="w-full p-3 border rounded-lg" name="phone" placeholder="Masukkan phone pengguna" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="username" class="block text-gray-700 font-semibold mb-2">username</label>
+                            <input id="username" type="text" class="w-full p-3 border rounded-lg" name="username" placeholder="Masukkan username pengguna" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="block text-gray-700 font-semibold mb-2">Kata Sandi</label>
+                            <input id="password" type="password" class="w-full p-3 border rounded-lg" name="password" placeholder="Masukkan kata sandi" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="role" class="block text-gray-700 font-semibold mb-2">Role</label>
+                            <select id="role" class="w-full p-3 border rounded-lg" name="role" required>
+                                <option hidden>Role</option>
+                                <option value="Admin">Admin</option>
+                                <option value="customer">Customer</option>
+                            </select>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" id="submit" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-400 transition">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

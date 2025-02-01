@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaloriKu - Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            background: url('https://img.freepik.com/free-photo/tasty-batch-food-cooked-with-copy-space_23-2148765560.jpg?t=st=1737652778~exp=1737656378~hmac=2d291e1d17c3854afe0db5620b3b410c24a4dde78feb1786bd586b14eabf5c9f&w=996') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+
+<body class="font-sans leading-normal tracking-normal">
+    <!-- Navbar Start -->
+    <nav class="bg-gradient-to-r from-teal-500 to-emerald-500 p-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-white text-3xl font-extrabold">KaloriKu</a>
+            <div class="space-x-6">
+                <a href="../index.html" class="text-white hover:text-gray-200 text-lg">Home</a>
+                <a href="menu.html" class="text-white hover:text-gray-200 text-lg">Menu</a>
+                <a href="article.html" class="text-white hover:text-gray-200 text-lg">Article</a>
+                <a href="../form_login.html" class="text-white hover:text-gray-200 text-lg">Login</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Register Form Start -->
+    <div class="container mx-auto my-16 flex justify-center items-center min-h-screen">
+        <div class="max-w-xl p-12 rounded-xl shadow-xl bg-white overlay">
+            <h2 class="text-4xl font-bold text-center text-green-700 mb-10">Register</h2>
+            <form id="register-form">
+                <div class="mb-8">
+                    <label for="fullname" class="block text-gray-700 font-semibold mb-3 text-xl">Full Name</label>
+                    <input id="fullname" type="text" class="w-full p-5 border rounded-lg text-xl" name="fullname" placeholder="Masukkan nama lengkap" required>
+                </div>
+                <div class="mb-8">
+                    <label for="phone" class="block text-gray-700 font-semibold mb-3 text-xl">Nomor HP</label>
+                    <input id="phone" type="tel" class="w-full p-5 border rounded-lg text-xl" name="phone" placeholder="Masukkan nomor HP" required>
+                </div>
+                <div class="mb-8">
+                    <label for="username" class="block text-gray-700 font-semibold mb-3 text-xl">Username</label>
+                    <input id="username" type="text" class="w-full p-5 border rounded-lg text-xl" name="username" placeholder="Masukkan username" required>
+                </div>
+                <div class="mb-8">
+                    <label for="password" class="block text-gray-700 font-semibold mb-3 text-xl">Password</label>
+                    <input id="password" type="password" class="w-full p-5 border rounded-lg text-xl" name="password" placeholder="Masukkan password" required>
+                </div>
+                <input type="hidden" id="role" name="role">
+                <div class="text-center">
+                    <button type="button" id="select-role" class="bg-blue-500 text-white px-10 py-5 rounded-lg text-xl hover:bg-blue-400 transition">Pilih Role</button>
+                    <button type="submit" class="bg-green-500 text-white px-10 py-5 rounded-lg text-xl hover:bg-green-400 transition">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Register Form End -->
+
+    <!-- Footer Start -->
+    <footer class="bg-teal-500 py-8">
+        <div class="container mx-auto text-center text-white">
+            <p class="text-lg">&copy; 2023 KaloriKu. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <script>
+        document.getElementById("select-role").addEventListener("click", function () {
+            Swal.fire({
+                title: "Pilih Role",
+                input: "select",
+                inputOptions: {
+                    customer: "Customer",
+                    Admin: "Admin"
+                },
+                inputPlaceholder: "Pilih role",
+                showCancelButton: true
+            }).then((result) => {
+                if (result.isConfirmed && result.value) {
+                    document.getElementById("role").value = result.value;
+                    Swal.fire("Role dipilih!", "Anda mendaftar sebagai " + result.value, "success");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

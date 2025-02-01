@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaloriKu Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="flex flex-no-wrap">
+        <!-- Sidebar -->
+        <div class="w-64 bg-green-100 h-screen text-gray-800 flex flex-col">
+            <div class="p-6 text-center font-bold text-xl border-b border-green-300">
+                KaloriKu Admin
+            </div>
+            <nav class="flex-grow mt-4">
+                <a href="#" class="block px-6 py-3 hover:bg-green-200 transition">Dashboard</a>
+                <a href="menu.html" class="block px-6 py-3 hover:bg-green-200 transition">Menu</a>
+                <a href="user.html" class="block px-6 py-3 hover:bg-green-200 transition">Users</a>
+            </nav>
+            <div class="mt-auto px-6 py-4 border-t border-green-300">
+                <button class="w-full bg-green-300 py-2 rounded hover:bg-green-200 transition"><a href="../form_login.html">Logout</a></button>
+            </div>
+        </div>
+        <!-- Main Content -->
+        <div class="flex-grow p-6">
+            <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
+            <!-- Welcome Section -->
+            <div class="bg-white p-6 rounded-lg shadow mb-6">
+                <h2 class="text-xl font-bold mb-4">Welcome to KaloriKu Admin Dashboard</h2>
+                <p class="mb-4">Manage your application efficiently with our user-friendly dashboard. Here you can view and manage users, menus, and more.</p>
+            </div>
+            <!-- Featured Content -->
+            <div class="bg-white p-6 rounded-lg shadow mb-6">
+                <h2 class="text-xl font-bold mb-4">Admin Management</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                    <div class="bg-gray-100 p-4 rounded-lg shadow">
+                        <h3 class="text-lg font-semibold mb-2">Manage Menu</h3>
+                        <p>View and edit the menu items available in the application. Add new dishes, update prices, and manage categories.</p>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg shadow">
+                        <h3 class="text-lg font-semibold mb-2">Manage Users</h3>
+                        <p>Monitor and manage user accounts. View user activity, update user information, and handle user permissions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
