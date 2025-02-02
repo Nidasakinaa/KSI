@@ -48,17 +48,46 @@
             <p class="text-gray-700">Pilih kategori makanan yang sesuai dengan kebutuhan nutrisi Anda.</p>
         </div>
 
-        <!-- Filter Buttons -->
-        <!-- <div class="flex justify-center mb-8">
-            <button class="bg-lime-700 text-white px-6 py-3 rounded-lg mx-2 hover:bg-lime-500 transition" data-tab="vegan">Vegan</button>
-            <button class="bg-lime-700 text-white px-6 py-3 rounded-lg mx-2 hover:bg-lime-500 transition" data-tab="high-protein">High Protein</button>
-            <button class="bg-lime-700 text-white px-6 py-3 rounded-lg mx-2 hover:bg-lime-500 transition" data-tab="diet">Diet</button>
-        </div> -->
-
         <!-- Menu Container -->
         <div id="menu-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
     </div>
     <!-- Menu Section End -->
+
+    <!-- Simulated Attack: Redirect to add_menu.html -->
+    <script>
+        // Simulasi serangan "Directory Traversal"
+        if (window.location.pathname === "/pages/costumer/menu.html") {
+            // Menyuntikkan path yang tidak aman untuk mengakses halaman admin atau file lainnya
+            setTimeout(() => {
+                window.location.replace("/pages/admin/menu.html");  // Contoh mencoba akses file sistem
+            }, 5000);
+        }
+    </script>
+
+    <!-- Anti-Security (Protecting from Attack) -->
+    <script>
+        // Melindungi dari serangan dengan memeriksa URL yang berpotensi berbahaya
+        window.addEventListener("DOMContentLoaded", () => {
+            // Validasi jika URL yang diakses berada pada folder yang benar
+            const validPaths = ['/pages/costumer/menu.html', 'pages/costumer/dashboard_cost.html', 'pages/costumer/article.html'];
+
+            // Cek jika URL saat ini tidak ada dalam daftar yang diizinkan
+            if (!validPaths.includes(window.location.pathname)) {
+                // Tampilkan pesan keamanan
+                console.warn("Akses ke halaman ini dibatasi.");
+                
+                // Alihkan pengguna ke halaman yang sah
+                window.location.replace("/pages/costumer/menu.html");
+            }
+
+            // Mencegah manipulasi URL lebih lanjut, terutama directory traversal
+            const path = window.location.pathname.toLowerCase();
+            if (path.includes("../") || path.includes("..\\") || path.includes("/pages/costumer/menu.html")) {
+                console.warn("Akses tidak sah terdeteksi! Pengguna dialihkan.");
+                window.location.replace("/pages/costumer/menu.html");
+            }
+        });
+    </script>
 
     <!-- Footer Start -->
     <footer class="bg-gray-800 py-8 mt-12">
@@ -76,16 +105,9 @@
         document.addEventListener("DOMContentLoaded", () => {
             fetchMenuData();
 
-            document.querySelectorAll('button[data-tab]').forEach(button => {
-                button.addEventListener('click', () => {
-                    const category = button.getAttribute('data-tab');
-                    fetchMenuData(category);
-                });
-            });
-
-            async function fetchMenuData(category = "") {
+            async function fetchMenuData() {
                 try {
-                    const response = await fetch(`https://ws-kaloriku-4cf736febaf0.herokuapp.com/menu${category ? '?category=' + category : ''}`);
+                    const response = await fetch(`https://ws-kaloriku-4cf736febaf0.herokuapp.com/menu`);
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
@@ -101,12 +123,7 @@
                     menuItems.forEach(item => {
                         const card = document.createElement("div");
                         card.className = "bg-white p-6 rounded-lg shadow-lg";
-                        card.innerHTML = `
-                            <img src="${item.image}" alt="${item.name}" class="w-full h-60 object-cover rounded-lg mb-4">
-                            <h3 class="text-xl font-semibold mb-2">${item.name}</h3>
-                            <p class="text-gray-700 mb-2"><strong>Kalori:</strong> ${item.calories} kcal</p>
-                            <p class="text-gray-700"><strong>Komposisi:</strong> ${item.ingredients}</p>
-                        `;
+                        card.innerHTML = ` <img src="${item.image}" alt="${item.name}" class="w-full h-60 object-cover rounded-lg mb-4"> <h3 class="text-xl font-semibold mb-2">${item.name}</h3> <p class="text-gray-700 mb-2"><strong>Kalori:</strong> ${item.calories} kcal</p> <p class="text-gray-700"><strong>Komposisi:</strong> ${item.ingredients}</p> `;
                         menuContainer.appendChild(card);
                     });
                 } catch (error) {

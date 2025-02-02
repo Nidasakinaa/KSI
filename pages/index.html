@@ -37,8 +37,6 @@
         <div class="container mx-auto text-center relative z-5 h-full flex flex-col justify-center items-center text-white">
             <h1 class="text-5xl font-extrabold mb-6">Apa itu KaloriKu?</h1>
             <p class="text-lg max-w-2xl mb-8">KaloriKu adalah aplikasi yang membantu Anda menjalani gaya hidup sehat dengan memberikan informasi makanan yang bergizi dan seimbang.</p>
-            <!-- CSRF Simulation Link -->
-            <a href="https://example.com/ubah-password?user=12345&newPassword=xyz123" class="bg-gradient-to-r from-teal-500 to-emerald-500 px-8 py-3 text-lg font-bold rounded-lg hover:from-teal-600 hover:to-emerald-600 transition">Jelajahi Menu</a>
         </div>
     </header>
     <!-- Hero Section End -->
@@ -54,9 +52,6 @@
                 <div class="md:w-1/3 text-left mt-8 md:mt-0">
                     <p class="text-gray-600 mb-4">KaloriKu adalah aplikasi yang memberikan informasi makanan untuk memperbaiki gaya hidup sehat. Kami menyediakan berbagai informasi bergizi yang sesuai dengan berbagai kebutuhan dan preferensi diet.</p>
                     <p class="text-gray-600 mb-4">Misi kami adalah membuat makan sehat menjadi mudah dan menyenangkan bagi semua orang. Di KaloriKu, kami percaya bahwa makanan yang baik adalah dasar dari kehidupan yang bahagia dan sehat.</p>
-                    <!-- Unvalidated Redirect Simulation -->
-                    <a href="https://hacker.com" target="_blank" class="bg-teal-500 text-white px-6 py-3 rounded-lg hover:bg-teal-600 transition" rel="noopener noreferrer" id="redirect-link">Pelajari Lebih Lanjut</a>
-
                 </div>
             </div>
         </div>
@@ -112,24 +107,7 @@
     <script>
         // Menampilkan tahun saat ini di footer
         document.getElementById("current-year").textContent = new Date().getFullYear();
-        // Mengatasi serangan unvalidated redirect
-        document.getElementById("redirect-link").addEventListener("click", function(event) {
-            event.preventDefault(); // Menghentikan pengalihan asli
-            const targetUrl = this.href;
 
-            // Daftar URL yang diizinkan
-            const allowedUrls = ["kaloriku.com", "example.com"];
-
-            // Mendapatkan hostname dari URL tujuan
-            const url = new URL(targetUrl);
-
-            // Mengecek apakah hostname ada dalam daftar URL yang diizinkan
-            if (allowedUrls.some(domain => url.hostname.includes(domain))) {
-                window.location.href = targetUrl;  // Melakukan pengalihan jika valid
-            } else {
-                window.location.href = "form_login.html";  // Redirect ke halaman login sebagai pencegahan
-            }
-        });
     </script>
 </body>
 

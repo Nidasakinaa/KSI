@@ -53,6 +53,10 @@
                     <input id="username" type="text" class="w-full p-5 border rounded-lg text-xl" name="username" placeholder="Masukkan username" required>
                 </div>
                 <div class="mb-8">
+                    <label for="email" class="block text-gray-700 font-semibold mb-3 text-xl">Email</label>
+                    <input id="email" type="text" class="w-full p-5 border rounded-lg text-xl" name="email" placeholder="Masukkan email" required>
+                </div>
+                <div class="mb-8">
                     <label for="password" class="block text-gray-700 font-semibold mb-3 text-xl">Password</label>
                     <input id="password" type="password" class="w-full p-5 border rounded-lg text-xl" name="password" placeholder="Masukkan password" required>
                 </div>
@@ -91,6 +95,73 @@
                     Swal.fire("Role dipilih!", "Anda mendaftar sebagai " + result.value, "success");
                 }
             });
+        });
+
+        // Serangan: Simulasi Poor Data Validation pada email
+        document.getElementById("register-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Ambil nilai email dari form
+            let emailInput = document.getElementById("email").value;
+            
+            // Validasi email yang buruk (Cek hanya apakah mengandung '@')
+            if (emailInput.indexOf('@') === -1) {
+                alert("Email tidak valid!");  // Hanya cek apakah mengandung '@'
+            } else {
+                // Email dianggap valid meskipun formatnya salah
+                alert("Registrasi berhasil!");
+                this.submit(); // Kirim form
+            }
+        });
+
+        // Antisipasi Serangan: Validasi tambahan untuk memastikan input yang lebih aman
+        document.getElementById("register-form").addEventListener("submit", function(event) {
+            // Mencegah pengiriman form sampai validasi tambahan dilakukan
+            event.preventDefault();
+
+            // Ambil nilai dari form
+            let emailInput = document.getElementById("email").value;
+            let fullnameInput = document.getElementById("fullname").value;
+            let phoneInput = document.getElementById("phone").value;
+            let usernameInput = document.getElementById("username").value;
+            let passwordInput = document.getElementById("password").value;
+
+            // Regex untuk validasi email yang lebih ketat
+            let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            // Validasi email dengan regex yang lebih ketat
+            if (!emailRegex.test(emailInput)) {
+                alert("Email tidak valid! Harap masukkan email dengan format yang benar.");
+                return;
+            }
+
+            // Validasi fullname (minimal 3 karakter)
+            if (fullnameInput.length < 3) {
+                alert("Nama lengkap harus lebih dari 3 karakter.");
+                return;
+            }
+
+            // Validasi nomor telepon (hanya angka, minimal 10 digit)
+            if (!/^\d{10,15}$/.test(phoneInput)) {
+                alert("Nomor HP tidak valid! Harap masukkan nomor HP yang benar.");
+                return;
+            }
+
+            // Validasi username (minimal 5 karakter)
+            if (usernameInput.length < 5) {
+                alert("Username harus lebih dari 5 karakter.");
+                return;
+            }
+
+            // Validasi password (minimal 6 karakter)
+            if (passwordInput.length < 6) {
+                alert("Password harus lebih dari 6 karakter.");
+                return;
+            }
+
+            // Jika semua input valid
+            alert("Registrasi berhasil!");
+            this.submit(); // Kirim form
         });
     </script>
 </body>

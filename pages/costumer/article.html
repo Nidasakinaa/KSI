@@ -66,7 +66,8 @@
                 <img src="https://cdn.kanalinspirasi.com/files/images/20250112-hidup-sehat.jpg" alt="Tips Hidup Sehat" class="w-full h-60 object-cover rounded-lg mb-4">
                 <h3 class="text-xl font-semibold mb-2 text-lime-700">Tips Hidup Sehat</h3>
                 <p class="text-gray-700 mb-4">Dapatkan tips dan trik untuk menjalani gaya hidup sehat setiap hari.</p>
-                <a href="https://www.webmd.com/health-insurance/ss/slideshow-20-tips-for-a-healthy-lifestyle" target="_blank" class="text-lime-600 hover:underline">Baca Selengkapnya</a>
+                <!-- Update Link to New Target -->
+                <a href="https://en.wikipedia.org/wiki/BtoB_(band)" target="_blank" class="text-lime-600 hover:underline">Baca Selengkapnya</a>
             </div>
             <!-- Article 5 -->
             <div class="bg-white p-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
@@ -101,6 +102,43 @@
     <!-- Optional JavaScript for Current Year -->
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Script for Validating Redirect URL -->
+    <script>
+        // Fungsi untuk memvalidasi URL
+        function validateRedirectUrl(url) {
+            // Daftar domain yang diizinkan (whitelist)
+            const allowedDomains = [
+                'healthline.com', 
+                'eatright.org', 
+                'bbcgoodfood.com', 
+                'mayoclinic.org', 
+                'mentalhealth.org.uk', 
+                'en.wikipedia.org'
+            ];
+
+            // Membuat objek URL untuk parsing
+            const parsedUrl = new URL(url);
+
+            // Mengecek apakah domain URL ada dalam whitelist
+            if (allowedDomains.includes(parsedUrl.hostname)) {
+                return true;
+            }
+            return false;
+        }
+
+        // Menambahkan event listener untuk semua tautan artikel
+        document.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                const url = link.getAttribute('href');
+                if (!validateRedirectUrl(url)) {
+                    // Mencegah redirect jika URL tidak valid
+                    event.preventDefault();
+                    alert("Redirect yang tidak valid atau berbahaya terdeteksi!");
+                }
+            });
+        });
     </script>
 </body>
 
